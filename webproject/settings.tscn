@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=3 uid="uid://boe8fo27g0nte"]
+
+[ext_resource type="Script" path="res://settings.gd" id="1_dgj46"]
+[ext_resource type="FontFile" uid="uid://bsyx2ninnmyd7" path="res://Cleanow.ttf" id="2_084re"]
+
+[node name="Settings" type="CanvasLayer"]
+script = ExtResource("1_dgj46")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 21.0
+offset_top = 10.0
+offset_right = 67.0
+offset_bottom = 41.0
+scale = Vector2(0.5, 0.5)
+size_flags_vertical = 4
+
+[node name="Settings" type="Button" parent="MarginContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_084re")
+text = "⚙"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+offset_left = 10.0
+offset_top = 28.0
+offset_right = 80.0
+offset_bottom = 41.0
+scale = Vector2(0.5, 0.5)
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer3"]
+layout_mode = 2
+
+[node name="Help" type="Button" parent="MarginContainer3/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_084re")
+text = "Help"
+
+[node name="Controls" type="Button" parent="MarginContainer3/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_084re")
+text = "Controls"
+
+[node name="Quit" type="Button" parent="MarginContainer3/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_084re")
+text = "Home"
+
+[node name="HelpIn" type="Label" parent="."]
+visible = false
+offset_left = 86.0
+offset_top = 25.0
+offset_right = 337.0
+offset_bottom = 68.0
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("2_084re")
+text = "Doug was stupid and lost a few 
+Smiley Bucks. Help him find them!"
+
+[node name="ControlsIn" type="Label" parent="."]
+visible = false
+offset_left = 83.0
+offset_top = 21.0
+offset_right = 413.0
+offset_bottom = 85.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_084re")
+text = "Use A and D, or the arrow keys to move! 
+Press space bar to jump and to double jump."
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="."]
+visible = false
+anchors_preset = -1
+anchor_right = 0.012
+offset_left = 148.0
+offset_top = 61.0
+offset_right = 194.16
+offset_bottom = 92.0
+scale = Vector2(0.5, 0.5)
+text = "X
+"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+modulate = Color(0.0980392, 0.0509804, 0, 0.215686)
+offset_left = 67.0
+offset_top = 2.0
+offset_right = 261.0
+offset_bottom = 91.0
+mouse_filter = 2

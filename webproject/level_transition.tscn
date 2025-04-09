@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbo4pjjhipmr3"]
+
+[ext_resource type="Script" path="res://level_transition.gd" id="1_k4jp8"]
+
+[sub_resource type="Animation" id="Animation_qur3v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.152941, 0.152941, 0.152941, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7scp3"]
+resource_name = "fadeoutblack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.152941, 0.152941, 0.152941, 1), Color(0.152941, 0.152941, 0.152941, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0c8lu"]
+resource_name = "fadetoblack"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.152941, 0.152941, 0.152941, 0), Color(0.154876, 0.154876, 0.154876, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bd2ws"]
+_data = {
+"RESET": SubResource("Animation_qur3v"),
+"fadeoutblack": SubResource("Animation_7scp3"),
+"fadetoblack": SubResource("Animation_0c8lu")
+}
+
+[node name="LevelTransition" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_k4jp8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bd2ws")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.152941, 0.152941, 0.152941, 0)

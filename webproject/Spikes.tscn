@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://e4tf0ysjqfb0"]
+
+[ext_resource type="Texture2D" uid="uid://ciyh430j8pp44" path="res://Spike.png" id="1_flop7"]
+[ext_resource type="PackedScene" uid="uid://d2g43j5snf7tp" path="res://hazard_area.tscn" id="2_owt7g"]
+
+[node name="SpikeIn" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Spike" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(3, -20)
+scale = Vector2(2, 2)
+texture = ExtResource("1_flop7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+
+[node name="Spike" type="Sprite2D" parent="Sprite2D2"]
+position = Vector2(49, -20)
+scale = Vector2(2, 2)
+texture = ExtResource("1_flop7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+
+[node name="Spike" type="Sprite2D" parent="Sprite2D3"]
+position = Vector2(80, -20)
+scale = Vector2(2, 2)
+texture = ExtResource("1_flop7")
+flip_h = true
+
+[node name="HazardArea" parent="." instance=ExtResource("2_owt7g")]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardArea"]
+position = Vector2(0.421589, -0.1875)
+scale = Vector2(1.00663, 1.01563)
+polygon = PackedVector2Array(-24, 0, -14, -40, 97, -39, 108, 0)

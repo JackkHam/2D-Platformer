@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhyo1ywt8g2xu"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_t8ex5"]
+[ext_resource type="Texture2D" uid="uid://byyip2ecn0ayd" path="res://Dirty Doug FINAL.png" id="2_0h1aq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p41tg"]
+atlas = ExtResource("2_0h1aq")
+region = Rect2(3, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeye7"]
+atlas = ExtResource("2_0h1aq")
+region = Rect2(230, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj0e6"]
+atlas = ExtResource("2_0h1aq")
+region = Rect2(34, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5r8l"]
+atlas = ExtResource("2_0h1aq")
+region = Rect2(66, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_is3jr"]
+atlas = ExtResource("2_0h1aq")
+region = Rect2(98, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqhp0"]
+atlas = ExtResource("2_0h1aq")
+region = Rect2(130, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51nxl"]
+atlas = ExtResource("2_0h1aq")
+region = Rect2(162, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bb3bh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p41tg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeye7")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj0e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5r8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_is3jr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqhp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51nxl")
+}],
+"loop": true,
+"name": &"running",
+"speed": 10.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_t8ex5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -9)
+sprite_frames = SubResource("SpriteFrames_bb3bh")
+animation = &"running"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(8, -12)
+polygon = PackedVector2Array(0.0992837, 1.51023, 0.0992837, 6.51023, -1.90072, 8.1769, -2, 11, -4, 11, -5, 11, -7, 11, -8, 11, -11, 11, -11.234, 8.84356, -13.9007, 4.51023, -13.9007, 0.843564, -8.56738, -1.8231, -5.90072, -1.8231, -0.900716, 0.510231)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -5)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="HazardDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardDetect"]
+polygon = PackedVector2Array(-6, -12, -1, -14, 3, -14, 8, -12, 7, -8, 7, -5, 6, -1, 0.793392, -1, -2, -1, -4, -4, -5, -7)
+
+[connection signal="area_entered" from="HazardDetect" to="." method="_on_hazard_detect_area_entered"]

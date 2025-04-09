@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b770dbdfgfet6"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_os48o"]
+[ext_resource type="PackedScene" uid="uid://bhyo1ywt8g2xu" path="res://character_body_2d.tscn" id="2_sfm8y"]
+[ext_resource type="PackedScene" uid="uid://ch4acfb0f0c5b" path="res://tile_map_layer_official.tscn" id="4_q7yym"]
+[ext_resource type="PackedScene" uid="uid://cd70cxlqt8fyn" path="res://level_complete.tscn" id="4_t6kiy"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(123, -61)
+script = ExtResource("1_os48o")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_sfm8y")]
+position = Vector2(-125, 61)
+
+[node name="TileMapLayerOfficial" parent="." instance=ExtResource("4_q7yym")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="LevelComplete" parent="CanvasLayer2" instance=ExtResource("4_t6kiy")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -161.0
+offset_top = -93.0
+offset_right = 156.0
+offset_bottom = 83.0
+grow_horizontal = 1
+grow_vertical = 1

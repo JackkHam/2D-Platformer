@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxfls7k2y4c7m"]
+[gd_scene load_steps=5 format=3 uid="uid://c0fw4yjyraw2a"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_1qxpp"]
-[ext_resource type="FontFile" uid="uid://bsyx2ninnmyd7" path="res://Cleanow.ttf" id="2_onhg7"]
-[ext_resource type="FontFile" uid="uid://bxj2plaxwwa6a" path="res://Bitshow.ttf" id="2_ya48i"]
-[ext_resource type="Texture2D" uid="uid://blmhsm7hjgtbh" path="res://DYO566arRbKig4viHO9CYw.webp" id="4_i6vhs"]
+[ext_resource type="FontFile" uid="uid://hd2nrtur53qv" path="res://Cleanow.ttf" id="2_onhg7"]
+[ext_resource type="FontFile" uid="uid://bsl0qqkulgdyc" path="res://Bitshow.ttf" id="2_ya48i"]
+[ext_resource type="Texture2D" uid="uid://cr1l07xo2wfv0" path="res://backgroundIntro.webp" id="4_b8kh7"]
 
 [node name="Menu" type="MarginContainer"]
 anchors_preset = 15
@@ -67,7 +67,7 @@ text = "Quit"
 z_index = -1
 layout_mode = 2
 mouse_filter = 2
-texture = ExtResource("4_i6vhs")
+texture = ExtResource("4_b8kh7")
 expand_mode = 4
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
